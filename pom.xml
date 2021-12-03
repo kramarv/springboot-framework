@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns="https://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.gem.matching-service</groupId>
@@ -46,6 +46,27 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-to-slf4j</artifactId>
+      <!-- <url>file://C:/Users/User/.m2</url> -->
+      <version>2.13.3</version>
+      <!-- <systemPath>${pom.basedir}/C:/Users/User/Downloads/sqldeveloper/sqldeveloper/lib</systemPath> -->
+      <exclusions>
+        <exclusion>
+          <groupId>com.sun.jmx</groupId>
+          <artifactId>jmxri</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.sun.jdmk</groupId>
+          <artifactId>jmxtools</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>javax.jms</groupId>
+          <artifactId>jms</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
       <artifactId>spring-boot-starter-data-rest</artifactId>
       <groupId>org.springframework.boot</groupId>
     </dependency>
@@ -81,7 +102,9 @@
       <artifactId>lombok</artifactId>
       <groupId>org.projectlombok</groupId>
       <optional>true</optional>
+      <version>1.18.20</version>
     </dependency>
+
     <dependency>
       <artifactId>h2</artifactId>
       <groupId>com.h2database</groupId>
@@ -98,11 +121,6 @@
       <artifactId>commons-text</artifactId>
       <groupId>org.apache.commons</groupId>
       <version>1.4</version>
-    </dependency>
-    <dependency>
-      <artifactId>jms</artifactId>
-      <groupId>javax.jms</groupId>
-      <version>1.1</version>
     </dependency>
     <!-- Pact Testing dependencies -->
     <dependency>
@@ -177,73 +195,74 @@
       <scope>compile</scope>
     </dependency>
   </dependencies>
+<!---
+    <repositories>
+      <repository>
+        <id>spring-releases</id>
+        <name>Spring Releases</name>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <url>https://repo.spring.io/release</url>
+      </repository>
+      <repository>
+        <id>spring-snapshots</id>
+        <name>Spring Snapshots</name>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+        <url>https://repo.spring.io/libs-snapshot</url>
+      </repository>
+       <repository>
+           <id>central</id>
+           <name>libs-release</name>
+           <snapshots>
+             <enabled>false</enabled>
+           </snapshots>
+           <url>https://repo.spring.io/libs-release</url>
+         </repository>
+       </repositories>
+-->
 
-  <repositories>
-    <repository>
-      <id>spring-releases</id>
-      <name>Spring Releases</name>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <url>https://repo.spring.io/release</url>
-    </repository>
-    <repository>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <url>https://repo.spring.io/libs-snapshot</url>
-    </repository>
-    <repository>
-      <id>central</id>
-      <name>libs-release</name>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <url>https://repo.spring.io/libs-release</url>
-    </repository>
-  </repositories>
+     <build>
+       <plugins>
+         <plugin>
+           <artifactId>maven-surefire-plugin</artifactId>
+           <configuration>
+             <systemPropertyVariables>
+               <buildDirectory>${project.build.directory}</buildDirectory>
+             </systemPropertyVariables>
+             <useSystemClassLoader>false</useSystemClassLoader>
+           </configuration>
+           <groupId>org.apache.maven.plugins</groupId>
+           <version>3.0.0-M3</version>
+         </plugin>
+         <plugin>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-maven-plugin</artifactId>
+           <configuration>
+             <mainClass>com.gem.matching.Application</mainClass>
+           </configuration>
 
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <systemPropertyVariables>
-            <buildDirectory>${project.build.directory}</buildDirectory>
-          </systemPropertyVariables>
-          <useSystemClassLoader>false</useSystemClassLoader>
-        </configuration>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>3.0.0-M3</version>
-      </plugin>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <mainClass>com.gem.matching.Application</mainClass>
-        </configuration>
+           <executions>
+             <execution>
+               <goals>
+                 <goal>repackage</goal>
+               </goals>
+             </execution>
+           </executions>
 
-        <executions>
-          <execution>
-            <goals>
-              <goal>repackage</goal>
-            </goals>
-          </execution>
-        </executions>
+         </plugin>
 
-      </plugin>
- 
-    </plugins>
-    <resources>
-      <resource>
-        <directory>${project.basedir}/src/main/resources</directory>
-      </resource>
-      <resource>
-        <directory>${project.build.frontendSourceDirectory}/dist/</directory>
-        <targetPath>static/</targetPath>
-      </resource>
-    </resources>
-  </build>
-</project>
+       </plugins>
+       <resources>
+         <resource>
+           <directory>${project.basedir}/src/main/resources</directory>
+         </resource>
+         <resource>
+           <directory>${project.build.frontendSourceDirectory}/dist/</directory>
+           <targetPath>static/</targetPath>
+         </resource>
+       </resources>
+     </build>
+   </project>
