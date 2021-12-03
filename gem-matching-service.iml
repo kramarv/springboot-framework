@@ -15,7 +15,6 @@
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-webmvc:3.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-core:3.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.hateoas:spring-hateoas:1.1.2.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-core:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.atteo:evo-inflector:1.2.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.3.4.RELEASE" level="project" />
@@ -84,7 +83,6 @@
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.24.0-GA" level="project" />
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.jboss:jandex:2.1.3.Final" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.dom4j:dom4j:2.1.3" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.3" level="project" />
@@ -141,6 +139,26 @@
     <orderEntry type="library" name="Maven: net.logstash.logback:logstash-logback-encoder:5.1" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.3" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-boot-starter:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-oas:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-annotations:2.1.2" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-models:2.1.2" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-spi:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-schema:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-core:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-spring-web:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.github.classgraph:classgraph:4.8.83" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-spring-webmvc:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-spring-webflux:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-swagger-common:3.0.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.mapstruct:mapstruct:1.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-data-rest:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-bean-validators:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-swagger2:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-swagger-ui:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.5.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-core:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-metadata:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback.contrib:logback-json-classic:0.1.5" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback.contrib:logback-json-core:0.1.5" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback.contrib:logback-jackson:0.1.5" level="project" />

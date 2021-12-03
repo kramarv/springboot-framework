@@ -1,3 +1,4 @@
+/Users/valentinakramarenko/springboot-framework/src/main/java/com/gem/matching/config/SwaggerConfig.java
 /Users/valentinakramarenko/springboot-framework/src/main/java/com/gem/matching/Application.java
 /Users/valentinakramarenko/springboot-framework/src/main/java/com/gem/matching/domain/validator/UuidValidator.java
 /Users/valentinakramarenko/springboot-framework/src/main/java/com/gem/matching/config/security/WebSecurityConfig.java
