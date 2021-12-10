@@ -77,11 +77,11 @@ public class DomainService implements MenteeEventualConsistencyTemplate {
     //MenteeSettings settings = new MenteeSettings(Arrays.asList("name:test","two","three"));
     //log.info("settins={}",settings.getSettings());
 
-    log.info("mentee={}");
+    log.info("mentee={}", mentee.getId());
     mentee.setName("test");
 
     menteeRepository.save(mentee);
-    return mentee.getName();
+    return mentee.toString();
 
   }
 
@@ -89,6 +89,8 @@ public class DomainService implements MenteeEventualConsistencyTemplate {
   public MenteeSettingsResponse getMenteeSettings(MenteeId menteeId) {
     Optional<Mentee> mentee = menteeRepository.findById(menteeId);
     MenteeSettingsResponse res = new MenteeSettingsResponse();
+    if(mentee.isPresent())
+      res.setMentee(mentee.get());
     return res;
   }
 

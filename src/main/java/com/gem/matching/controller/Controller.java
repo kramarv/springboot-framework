@@ -39,10 +39,14 @@ public class Controller {
    * @return {@link CompletableFuture} of type {@link MenteeSettingsResponse}
    */
   @GetMapping("/mentee/{id}")
-  public CompletableFuture<MenteeSettingsResponse> getMenteeSettings(@PathVariable UUID id) {
+  public CompletableFuture<String> getMenteeSettings(@PathVariable UUID id) {
+    log.info("uuid={}", id);
     return CompletableFuture.supplyAsync(() -> {
       try {
-        return settingsFacadeService.getMenteeSettings(new MenteeId(id));
+        MenteeSettingsResponse res = settingsFacadeService.getMenteeSettings(new MenteeId(id));
+        if (res.getMentee() != null) return res.getMentee().toString();
+        else return "not found";
+        
       } catch (Exception ex) {
         throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Access level exception", ex);
       }

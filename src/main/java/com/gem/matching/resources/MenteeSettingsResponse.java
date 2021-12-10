@@ -1,5 +1,6 @@
 package com.gem.matching.resources;
 
+import com.gem.matching.domain.model.entity.mentee.Mentee;
 import com.gem.matching.domain.model.entity.mentee.MenteeSettings;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MenteeSettingsResponse {
-    private MenteeSettings menteeSettings;
+    private Mentee mentee;
 
 }
