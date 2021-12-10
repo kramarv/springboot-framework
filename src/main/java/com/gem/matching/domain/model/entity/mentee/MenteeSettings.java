@@ -42,6 +42,5 @@ public class MenteeSettings {
   @Column
   @ElementCollection(targetClass=String.class)
   private List<String> settings = new ArrayList<>();
-
 }
 

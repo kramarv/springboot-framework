@@ -4,6 +4,7 @@ import com.gem.matching.domain.model.entity.stereotype.AggregateRoot;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -13,12 +14,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
 @Entity
 @Table(name = "Mentee")
-@AllArgsConstructor
 @Getter
 @ToString(callSuper = true)
 @Slf4j
@@ -34,8 +35,10 @@ public class Mentee /*extends AggregateRoot<MenteeId>*/ {
   @EmbeddedId
   private final MenteeId id;
 
-  @Embedded
-  private MenteeSettings menteeSettings;
+
+  @Column
+  @Setter
+  private String  name;
 
 
   /**
@@ -45,6 +48,6 @@ public class Mentee /*extends AggregateRoot<MenteeId>*/ {
    * @param menteeId The {@link MenteeId} of this Mentee
    */
   public Mentee(MenteeId menteeId) {
-    this(menteeId, MenteeSettings.builder().build());
+    id=menteeId;
   }
 }

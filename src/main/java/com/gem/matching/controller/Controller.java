@@ -1,6 +1,7 @@
 package com.gem.matching.controller;
 
 
+import com.gem.matching.domain.model.entity.mentee.Mentee;
 import com.gem.matching.domain.model.entity.mentee.MenteeId;
 import com.gem.matching.domain.service.DomainService;
 import com.gem.matching.exception.MenteeNotFoundException;
@@ -50,17 +51,25 @@ public class Controller {
 
 
   @GetMapping("/add")
-  public CompletableFuture<String> postMentee() {
+  public String postMentee() {
+    MenteeId menteeId = new MenteeId();
+    Mentee addedMentee = new Mentee(menteeId);
+    String result = settingsFacadeService.configureMentee(addedMentee);
+    return result;
+  }
+
+
+    /*
     return CompletableFuture.supplyAsync(() -> {
       try {
 
         MenteeId menteeId=new MenteeId();
-        settingsFacadeService.configureMentee(menteeId);
+        Mentee addedMentee = new Mentee(menteeId);
         return menteeId.toString();
 
       } catch (Exception ex) {
         throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Access level exception", ex);
       }
     });
-  }
+  }*/
 }

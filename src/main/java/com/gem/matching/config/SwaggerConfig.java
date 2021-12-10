@@ -28,7 +28,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2).select()
-        .apis(RequestHandlerSelectors.basePackage("com.bbm.bsipua")).paths(PathSelectors.any()).build();
+        .apis(RequestHandlerSelectors.basePackage("com.gem.matching")).paths(PathSelectors.any()).build();
   }
 
   @Override
