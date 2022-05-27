@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.frankmoley.lil.learningspring.LearningSpringApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 16.013 s <<< FAILURE! - in com.frankmoley.lil.learningspring.LearningSpringApplicationTests
+contextLoads  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'defaultValidator' defined in class path resource [org/springframework/boot/autoconfigure/validation/ValidationAutoConfiguration.class]: Invocation of init method failed; nested exception is javax.validation.ValidationException: Unable to instantiate Configuration.
+Caused by: javax.validation.ValidationException: Unable to instantiate Configuration.
+Caused by: java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+
