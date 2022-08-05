@@ -22,7 +22,7 @@ public interface MenteeEventualConsistencyTemplate {
    */
   default Mentee getOrCreateTenant(EntityManager em, MenteeRepository menteeRepository,
       MenteeId menteeId) {
-    final Mentee entity = menteeRepository.findById(menteeId).orElseGet(() -> {
+    final Mentee entity = menteeRepository.findById(menteeId.getUuid()).orElseGet(() -> {
       return menteeRepository.save(new Mentee(menteeId));
     });
 

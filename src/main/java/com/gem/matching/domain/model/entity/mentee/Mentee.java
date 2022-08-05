@@ -3,6 +3,7 @@ package com.gem.matching.domain.model.entity.mentee;
 import com.gem.matching.domain.model.entity.stereotype.AggregateRoot;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -33,7 +34,7 @@ public class Mentee /*extends AggregateRoot<MenteeId>*/ {
   }
 
   @EmbeddedId
-  private final MenteeId id;
+  private final UUID id;
 
 
   @Column
@@ -48,6 +49,6 @@ public class Mentee /*extends AggregateRoot<MenteeId>*/ {
    * @param menteeId The {@link MenteeId} of this Mentee
    */
   public Mentee(MenteeId menteeId) {
-    id=menteeId;
+    id=menteeId.getUuid();
   }
 }

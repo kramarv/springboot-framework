@@ -8,6 +8,7 @@ import com.gem.matching.exception.MenteeNotFoundException;
 import com.gem.matching.domain.model.entity.mentee.Mentee;
 import com.gem.matching.resources.MenteeSettingsResponse;
 import java.util.Optional;
+import java.util.UUID;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import lombok.NonNull;
@@ -39,7 +40,15 @@ public class DomainService implements MenteeEventualConsistencyTemplate {
    * @return true if it is a valid event false otherwise.
    */
   public Boolean validateRequest(@NonNull SubmittedEvent event) {
-    final Optional<Mentee> optionalMentee = menteeRepository.findById(event.getMenteeId());
+    Iterable<Mentee> repo = menteeRepository.findAll();
+    System.out.println("TK==" + repo.toString());
+
+    menteeRepository.findAll().forEach(m-> {
+      System.out.println("===found: " + m.getId() +  "uuid" + m.getId().toString());
+
+    });
+
+    final Optional<Mentee> optionalMentee = menteeRepository.findById(event.getMenteeId().getUuid());
 
     if (optionalMentee.isPresent()) {
       log.error("Invalid Mentee Id");
@@ -87,7 +96,13 @@ public class DomainService implements MenteeEventualConsistencyTemplate {
 
 
   public MenteeSettingsResponse getMenteeSettings(MenteeId menteeId) {
-    Optional<Mentee> mentee = menteeRepository.findById(menteeId);
+    Iterable<Mentee> repo = menteeRepository.findAll();
+    System.out.println("TK1 repo=" + repo.toString());
+
+    UUID uuid = menteeId.getUuid();
+    Optional<Mentee> mentee = menteeRepository.findById(uuid);
+    System.out.println("TK2 mentee=" + mentee);
+
     MenteeSettingsResponse res = new MenteeSettingsResponse();
     if(mentee.isPresent())
       res.setMentee(mentee.get());
