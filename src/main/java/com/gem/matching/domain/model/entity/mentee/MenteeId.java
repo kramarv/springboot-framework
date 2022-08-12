@@ -47,8 +47,8 @@ public final class MenteeId implements Id {
       return true;
     if (obj == null)
       return false;
-    if (getClass() != obj.getClass())
-      return false;
+ //   if (getClass() != obj.getClass())
+ //     return false;
     MenteeId other = (MenteeId) obj;
     if (uuid == null) {
       if (other.uuid != null)

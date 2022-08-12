@@ -20,9 +20,9 @@ public interface MenteeEventualConsistencyTemplate {
    * @param menteeId the {@link MenteeId} of the {@link Mentee} to retrieve
    * @return a {@link Mentee} with the given {@link MenteeId}
    */
-  default Mentee getOrCreateTenant(EntityManager em, MenteeRepository menteeRepository,
+  default Mentee getOrCreateMentee(EntityManager em, MenteeRepository menteeRepository,
       MenteeId menteeId) {
-    final Mentee entity = menteeRepository.findById(menteeId.getUuid()).orElseGet(() -> {
+    final Mentee entity = menteeRepository.findById(menteeId).orElseGet(() -> {
       return menteeRepository.save(new Mentee(menteeId));
     });
 

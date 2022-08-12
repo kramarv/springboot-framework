@@ -19,9 +19,9 @@ public abstract class FacadeService implements MenteeEventualConsistencyTemplate
    * @param MenteeId MenteeId the {@link MenteeId} of the {@link Mentee}
    * @param function the function to apply to the {@link Mentee}
    */
-  protected Boolean executeFunctionIfMenteeExists(MenteeId MenteeId,
+  protected Boolean executeFunctionIfMenteeExists(MenteeId menteeId,
       Function<Mentee, Boolean> function) {
-    Optional<Mentee> check = getMenteeRepository().findById(MenteeId.getUuid());
+    Optional<Mentee> check = getMenteeRepository().findById(menteeId);
     return check.isPresent() ? function.apply(check.get()) : false;
   }
 }

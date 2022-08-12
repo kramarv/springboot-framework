@@ -34,7 +34,7 @@ public class Mentee /*extends AggregateRoot<MenteeId>*/ {
   }
 
   @EmbeddedId
-  private final UUID id;
+  private MenteeId id;
 
 
   @Column
@@ -49,6 +49,7 @@ public class Mentee /*extends AggregateRoot<MenteeId>*/ {
    * @param menteeId The {@link MenteeId} of this Mentee
    */
   public Mentee(MenteeId menteeId) {
-    id=menteeId.getUuid();
+    ///
+    id=menteeId;
   }
 }

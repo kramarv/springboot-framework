@@ -48,7 +48,7 @@ public class DomainService implements MenteeEventualConsistencyTemplate {
 
     });
 
-    final Optional<Mentee> optionalMentee = menteeRepository.findById(event.getMenteeId().getUuid());
+    final Optional<Mentee> optionalMentee = menteeRepository.findById(event.getMenteeId());
 
     if (optionalMentee.isPresent()) {
       log.error("Invalid Mentee Id");
@@ -100,7 +100,7 @@ public class DomainService implements MenteeEventualConsistencyTemplate {
     System.out.println("TK1 repo=" + repo.toString());
 
     UUID uuid = menteeId.getUuid();
-    Optional<Mentee> mentee = menteeRepository.findById(uuid);
+    Optional<Mentee> mentee = menteeRepository.findById(menteeId);
     System.out.println("TK2 mentee=" + mentee);
 
     MenteeSettingsResponse res = new MenteeSettingsResponse();
